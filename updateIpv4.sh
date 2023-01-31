@@ -56,7 +56,7 @@ fi
 
 if [ "$currentValue" = "$externalIpv4Add" ]; then
   echo "DNS value already same as external address, will not update, exit."
-  exit 0
+  continue
 fi
 
 updateRecord "$zoneId" "$recordName" "$apiKey" "$resourceId" "A" "$externalIpv4Add"
