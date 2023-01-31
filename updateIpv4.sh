@@ -23,14 +23,14 @@ if [ $? -eq 1 ]; then
   exit
 fi
 
-for recordName in ${arr_recordName[@]} 
+for recordName in ${arr_recordName[@]}
 do
 echo $recordName
 
 externalIpv4Add=$(getIpv4Address)
 echo "Get external ipv4 address: $externalIpv4Add"
 
-currentStat=$(listRecord "$zoneId" "$recordName" "$apiKey")
+currentStat=$(listRecord "$zoneId" "$recordName" "$apiKey" "A")
 if [ $? -eq 1 ]; then
   echo "listRecord failed"
   exit

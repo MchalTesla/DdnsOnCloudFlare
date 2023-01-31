@@ -56,7 +56,8 @@ listRecord() {
   local zoneId=$1
   local recordName=$2
   local apiKey=$3
-  local result=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$zoneId/dns_records?name=$recordName" \
+  local type=$4
+  local result=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$zoneId/dns_records?type=$type&name=$recordName" \
     -H "Content-Type:application/json" \
     -H "Authorization: Bearer $apiKey")
 
