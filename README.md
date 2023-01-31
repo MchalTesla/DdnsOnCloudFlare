@@ -1,5 +1,5 @@
 # DdnsOnCloudFlare
-A shell script to automatic update cloudFlare dns record whit actual external ip address, leveraging the official CloudFlare api.
+A shell script to automatic update cloudFlare dns record whit actual external ip address, leveraging the official CloudFlare api.This branch allows control of multiple domain names
 
 # Guide
 ## Pre-work
