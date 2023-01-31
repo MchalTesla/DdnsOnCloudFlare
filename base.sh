@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #title           :base.sh
 #description     :
 #author          :gf@gfshen.cn
@@ -30,7 +30,7 @@ checkConfValid() {
     echo "zoneId invalid"
     return 1
   fi
-  if [ -z "$recordName" ]; then
+  if [ -z "{$arr_recordName[*]}" ]; then
     echo "recordName invalid"
     return 1
   fi

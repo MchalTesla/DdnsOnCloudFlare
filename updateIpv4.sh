@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #title           :updateIpv4.sh
 #description     :
 #author          :gf@gfshen.cn
@@ -22,6 +22,10 @@ if [ $? -eq 1 ]; then
   echo "Missing param, please check config.conf "
   exit
 fi
+
+for recordName in ${arr_recordName[@]} 
+do
+echo $recordName
 
 externalIpv4Add=$(getIpv4Address)
 echo "Get external ipv4 address: $externalIpv4Add"
@@ -61,3 +65,5 @@ if [ $? -eq 0 ]; then
 else
   echo "update failed"
 fi
+
+done

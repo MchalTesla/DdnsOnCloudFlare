@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #title           :updateIpv6.sh
 #description     :
 #author          :gf@gfshen.cn
@@ -22,6 +22,10 @@ if [ $? -eq 1 ]; then
   echo "Missing param, please check config.conf "
   exit
 fi
+
+for recordName in ${arr_recordName[@]} 
+do
+echo $recordName
 
 externalIpv6Add=$(getIpv6Address)
 echo "Get external ipv6 address: $externalIpv6Add"
@@ -52,7 +56,7 @@ fi
 
 if [ "$currentValue" = "$externalIpv6Add" ]; then
   echo "DNS value already same as external address, will not update, exit."
-  exit 0
+  continue
 fi
 
 updateRecord "$zoneId" "$recordName" "$apiKey" "$resourceId" "AAAA" "$externalIpv6Add"
@@ -61,3 +65,5 @@ if [ $? -eq 0 ]; then
 else
   echo "update failed"
 fi
+
+done
